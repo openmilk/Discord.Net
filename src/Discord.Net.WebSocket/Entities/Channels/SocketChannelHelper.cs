@@ -14,7 +14,13 @@ namespace Discord.WebSocket
             if (dir == Direction.After && fromMessageId == null)
                 return AsyncEnumerable.Empty<IReadOnlyCollection<IMessage>>();
 
-            var cachedMessages = GetCachedMessages(channel, discord, messages, fromMessageId, dir, limit);
+            var cachedMessages = new List<SocketMessage>();
+
+            if (!mode.HasFlag(CacheMode.PreferDownload))
+            {
+                cachedMessages = GetCachedMessages(channel, discord, messages, fromMessageId, dir, limit).ToList();
+            }
+
             var result = ImmutableArray.Create(cachedMessages).ToAsyncEnumerable<IReadOnlyCollection<IMessage>>();
 
             if (dir == Direction.Before)

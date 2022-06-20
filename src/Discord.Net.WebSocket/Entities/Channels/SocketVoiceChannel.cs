@@ -127,16 +127,16 @@ namespace Discord.WebSocket
         /// <inheritdoc/> <exception cref="NotSupportedException">This function is only supported in Text-In-Voice channels.</exception>
         public override Task DeleteMessagesAsync(IEnumerable<IMessage> messages, RequestOptions options = null)
         {
-            if (!IsTextInVoice)
-                throw new NotSupportedException("This function is only supported in Text-In-Voice channels");
+            //if (!IsTextInVoice)
+                //throw new NotSupportedException("This function is only supported in Text-In-Voice channels");
             return base.DeleteMessagesAsync(messages, options); 
         }
 
         /// <inheritdoc/> <exception cref="NotSupportedException">This function is only supported in Text-In-Voice channels.</exception>
         public override Task DeleteMessagesAsync(IEnumerable<ulong> messageIds, RequestOptions options = null)
         {
-            if (!IsTextInVoice)
-                throw new NotSupportedException("This function is only supported in Text-In-Voice channels");
+            //if (!IsTextInVoice)
+                //throw new NotSupportedException("This function is only supported in Text-In-Voice channels");
             return base.DeleteMessagesAsync(messageIds, options); 
         }
 

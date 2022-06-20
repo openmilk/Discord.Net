@@ -27,13 +27,13 @@ namespace Discord
         public static ChannelPermissions All(IChannel channel)
         {
             return channel switch
-            {
-                ITextChannel _ => Text,
+            {           
                 IStageChannel _ => Stage,
                 IVoiceChannel _ => Voice,
                 ICategoryChannel _ => Category,
                 IDMChannel _ => DM,
                 IGroupChannel _ => Group,
+                ITextChannel _ => Text,
                 _ => throw new ArgumentException(message: "Unknown channel type.", paramName: nameof(channel)),
             };
         }
